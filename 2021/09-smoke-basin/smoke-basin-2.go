@@ -29,21 +29,17 @@ func main(){
     depths[0] = make([]uint8, W+2)
     depths[H+1] = make([]uint8, W+2)
     for j:=0; j<W+2; j++ {
-        depths[0][j] = 10
-        depths[H+1][j] = 10
+        depths[0][j], depths[H+1][j] = 10, 10
     }
     for i:=1; i<H+1; i++ {
-        depths[i][0] = 10
-        depths[i][W+1] = 10
+        depths[i][0], depths[i][W+1] = 10, 10
     }
 
+    // Look Ma, channel-based queue!
     added, processed := 0, 0
     queue := make(chan int, 10000)
-    basins := []int {0,}
     basinarea := []int {0,}
     var basinids[102][] int
-    
-    // Look ma, channel-based queue!
 
     basinids[0], basinids[H+1] = make([]int, W+2), make([]int, W+2) 
     for i:=1; i<H+1; i++ {
@@ -56,13 +52,11 @@ func main(){
                 coords := 1000*i+j
                 queue <- coords
                 added++
-                basinids[i][j] = len(basins)
+                basinids[i][j] = added
                 basinarea = append(basinarea, 1)
-                basins = append(basins, coords)
             }
         }
     }
-    fmt.Println("")
 
     for processed < added {
         coord := <- queue
@@ -80,11 +74,11 @@ func main(){
         processed++
     }
     close(queue)
+    
     sort.Ints(basinarea[1:])
     for i := len(basinarea)-1; i>=len(basinarea)-3; i-- {
         prodBasins *= int64(basinarea[i])
     }
-    fmt.Println(basinarea)
     fmt.Println(prodBasins)
 }
 
