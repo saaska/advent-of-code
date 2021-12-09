@@ -9,7 +9,7 @@ import (
 	. "strings"
 )
 
-func main(){
+func main1(){
 	sumRisk:=0
 	scanner := bufio.NewScanner(os.Stdin)
 	var depths [102][]uint8
@@ -47,7 +47,7 @@ func main(){
 	    	}
 	    }
     }
-    fmt.Println(depths[:H+2], sumRisk)
+    fmt.Println(sumRisk)
 }
 
 // start: 2021-12-09T15:43:03Z
