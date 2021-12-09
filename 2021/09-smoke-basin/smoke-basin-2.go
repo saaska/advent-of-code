@@ -43,6 +43,8 @@ func main(){
     basinarea := []int {0,}
     var basinids[102][] int
     
+    // Look ma, channel-based queue!
+
     basinids[0], basinids[H+1] = make([]int, W+2), make([]int, W+2) 
     for i:=1; i<H+1; i++ {
         basinids[i] = make([]int, W+2)
