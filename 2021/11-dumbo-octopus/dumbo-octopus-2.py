@@ -15,6 +15,5 @@ while E.any():
 			E += np.sign(E) * np.roll(Neighbors, (i,j), axis=(0,1))[1:-1, 1:-1]
 		E = E.clip(max=10)
 		flashes = E==10
-print(steps)
 print(E)
-# end: 
+# end: 2021-12-11T09:32:36Z
