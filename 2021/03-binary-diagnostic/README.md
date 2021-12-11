@@ -22,7 +22,7 @@
                  of all numbers in the diagnostic report. For example, given the following diagnostic report:
             </p>
             <pre>
-                <code>00100
+<code>00100
 11110
 10110
 10111
@@ -34,7 +34,7 @@
 11001
 00010
 01010
-                </code>
+</code>
             </pre>
             <p>
                 Considering only the first bit of each number, there are five 
