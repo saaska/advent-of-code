@@ -1,7 +1,14 @@
 import sys
-d = {'forward':0, 'down':0, 'up':0}
+x, y, aim = 0, 0, 0
 for line in sys.stdin:
 	where, howmuch = line.split()
-	d[where] += int(howmuch)
-
-print(d['forward']*(d['down']-d['up']))
+	howmuch = int(howmuch)
+	if where == 'forward':
+		x += howmuch
+		y += aim*howmuch
+	elif where == 'up':
+		aim -= howmuch
+	else:
+		aim += howmuch
+	# print(line, x, y, aim)
+print(x*y)

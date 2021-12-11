@@ -11,19 +11,11 @@ import (
 func main() {
     reader := bufio.NewReader(os.Stdin)
     scn := bufio.NewScanner(reader)
-    aim, x, y := 0, 0, 0
+    dist := map[string] int { "up ":0, "down ":0, "forward ":0 }
     for scn.Scan() {
         move:= SplitAfter(scn.Text()," ")
         d,_ := strconv.Atoi(move[1])
-        switch move[0] {
-        case "up ": 
-            aim -= d
-        case "down ": 
-            aim += d
-        case "forward ":
-            x += d
-            y += d*aim
-        }
+        dist[move[0]] += d
     }
-    fmt.Println(x*y)
+    fmt.Print((dist["down "]-dist["up "])*dist["forward "])
 }
