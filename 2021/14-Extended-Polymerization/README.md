@@ -15,26 +15,24 @@
 </p>
 <p>For example:</p>
 <pre>
-    <code>NNCB
-
-    CH -&gt; B
-    HH -&gt; N
-    CB -&gt; H
-    NH -&gt; C
-    HB -&gt; C
-    HC -&gt; B
-    HN -&gt; C
-    NN -&gt; C
-    BH -&gt; H
-    NC -&gt; B
-    NB -&gt; B
-    BN -&gt; B
-    BB -&gt; N
-    BC -&gt; B
-    CC -&gt; N
-    CN -&gt; C
-    </code>
-</pre>
+<code>NNCB
+CH -> B
+HH -> N
+CB -> H
+NH -> C
+HB -> C
+HC -> B
+HN -> C
+NN -> C
+BH -> H
+NC -> B
+NB -> B
+BN -> B
+BB -> N
+BC -> B
+CC -> N
+CN -> C
+</code></pre>
 <p>
     The first line is the 
     <em>polymer template</em>
@@ -121,12 +119,12 @@
 </p>
 <p>Here are the results of a few steps using the above rules:</p>
 <pre>
-    <code>Template:     NNCB
-    After step 1: NCNBCHB
-    After step 2: NBCCNBBBCBHCB
-    After step 3: NBBBCNCCNBBNBNBBCHBHHBCHB
-    After step 4: NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB
-    </code>
+<code>Template:     NNCB
+After step 1: NCNBCHB
+After step 2: NBCCNBBBCBHCB
+After step 3: NBBBCNCCNBBNBNBBCHBHHBCHB
+After step 4: NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB
+</code>
 </pre>
 <p>
     This polymer grows quickly. After step 5, it has length 97; After step 10, it has length 3073. After step 10, 
