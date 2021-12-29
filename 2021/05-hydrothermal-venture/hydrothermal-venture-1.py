@@ -5,7 +5,7 @@ import numpy as np
 L = open('input.txt').read().replace(' -> ',',').replace('\n',',')
 P = np.fromstring(L, sep=',', dtype=np.int16).reshape(-1,4)
 
-W,H = P[:,1::2].max(), P[:,::2].max()
+W,H = P[:,1::2].max()+1, P[:,::2].max()+1
 Z = np.zeros((H,W), dtype=np.uint16)
 
 print(len(Z[Z>1]))
