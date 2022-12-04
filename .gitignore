@@ -5,3 +5,9 @@
 *.exe~
 *.pyc
 *.pyo
+
+# cookies for the statement-getter script
+cookies.txt
+
+# puzzle input
+input
