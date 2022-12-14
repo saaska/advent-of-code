@@ -32,7 +32,7 @@ STUB_NAME = '{part}-day{day_number:02d}-{title}.py'
 EXAMPLE_NAME = 'ex{ex_number}'
 INPUT_NAME = 'input'
 
-STUB_TEMPLATE = 'import sys\n\nanswer = 0\nfor line in sys.stdin:\n    ans += 1\n\nprint(answer)\n'
+STUB_TEMPLATE = 'import sys\n\nans = 0\nfor line in sys.stdin:\n    ans += 1\n\nprint(ans)\n'
 
 BASE_URL = 'https://adventofcode.com'
 HEADERS = 'accept: text/html\naccept-encoding: gzip, deflate, br\naccept-language: en-US,en\ncache-control: max-age=0\nsec-ch-ua: "Google Chrome";v="100", "Chromium";v="100", "Not=A?Brand";v="555"\nsec-ch-ua-mobile: ?0\nsec-fetch-dest: document\nsec-fetch-mode: navigate\nsec-fetch-site: none\nsec-fetch-user: ?1\nupgrade-insecure-requests: 1\nuser-agent: Mozilla/5.0 Chrome Python Script'
