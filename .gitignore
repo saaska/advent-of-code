@@ -11,3 +11,6 @@ cookies.txt
 
 # puzzle input
 input
+
+# cached compiled Python bytecode
+__pycache__
