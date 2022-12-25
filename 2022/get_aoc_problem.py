@@ -57,11 +57,12 @@ def main():
 
     ex_number = 0
     
-    for i, statement in enumerate(statements):
-        part = i+1
+    for part, statement in enumerate(statements, 1):
         stub_fn = render_fn_template(STUB_NAME, locals())
         if not exists(stub_fn):
             create_solution_stub(statement, stub_fn)
+
+        create_readme(statement)
         
         examples = statement.select('pre code')
         for example in examples:
@@ -118,8 +119,8 @@ def get_problem_title(statement):
 
 def to_markdown(tag):
     """ Quick-and-dirty conversion from HTML to Markdown, should about do it for AoC pages """
-    HTML2MD = {'em': '*', 'ex': '*', 'strong':'**', 'b': '**', 'h2':('## ', ''),
-           'code': '`', 'p': ('\n',''), 'li':('* ',''), 'ul': ''}
+    HTML2MD = {'em': '*', 'ex': '*', 'strong':'**', 'b': '**', 'h2':('## ', '\n'),
+           'code': '`', 'pre':'``', 'p': ('\n',''), 'li':('* ',''), 'ul': ''}
 
     if tag.name in HTML2MD:
         delim = HTML2MD[tag.name]
@@ -133,9 +134,16 @@ def to_markdown(tag):
 def create_solution_stub(statement, fn):
     statement_markdown = to_markdown(statement).replace('\n\n\n', '\n\n')
     open(fn, 'w').write(f'"""{statement_markdown}"""\n{STUB_TEMPLATE}')
-    
+
+def create_readme(statement):
+    statement_markdown = to_markdown(statement).replace('```', '```\n').replace('\n\n\n', '\n\n')
     readme_fn = os.path.join(problem_dir, 'README.md')
-    open(readme_fn, 'a' if exists(readme_fn) else 'w').write(statement_markdown)
+    if exists(readme_fn):
+        mode = 'a'
+        statement_markdown = '\n' + statement_markdown
+    else:
+        mode = 'w'
+    open(readme_fn, mode).write(statement_markdown)
 
 def get_url(url):
     r = requests.get(url, headers=headers, cookies=cookies)    
